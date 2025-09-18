@@ -8,7 +8,6 @@ const ScheduleDetails = () => {
   const { id } = useParams();
   const [schedule, setSchedule] = useState<Schedule | null>(null);
   const [loading, setLoading] = useState(true);
-  const [newTask, setNewTask] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {

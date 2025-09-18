@@ -28,7 +28,7 @@ const NavigationBar = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { user } = useUserAuthentication()
-  const [isLoading, setIsLoading] = useState('false')
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   const navigateToLogIn = () => {
@@ -40,17 +40,12 @@ const NavigationBar = () => {
     navigate('/signup')
   }
 
-  const navigateToProfile = () => {
-    setIsMobileMenuOpen(false)
-    navigate('/profile')
-  }
-
   const navigateToDashboard = () => {
     setIsMobileMenuOpen(false)
     navigate('/dashboard')
   }
 
-  const handleLogout = async (e) => {
+  const handleLogout = async (e: any) => {
     e.preventDefault()
     setIsLoading(true)
 

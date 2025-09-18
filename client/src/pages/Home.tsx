@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Target,
   Flame,
@@ -9,7 +8,6 @@ import {
   Zap,
   Shield,
   ArrowRight,
-  Play,
 } from 'lucide-react'
 import { useNavigate } from 'react-router'
 import NavigationBar from '@/components/Navbar'

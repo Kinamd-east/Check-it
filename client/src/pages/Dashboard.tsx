@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
-  Clock,
   Target,
-  Download,
-  Flame,
   AlertTriangle,
-  Trophy,
-  Calendar,
-  CheckCircle,
-  PlusCircle,
-  XCircle,
   Settings,
 } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
 import { toast } from 'sonner'
 import type { Schedule } from '@/types'
 import { Navigate, useNavigate, Link } from 'react-router'
