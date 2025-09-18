@@ -19,10 +19,11 @@ const MongoStore = require('connect-mongo')
 const app = express()
 app.use(
   cors({
-    origin: 'http://localhost:5173', // your React app's address
+    origin: 'https://check-it-site.onrender.com', // your React app's address
     credentials: true, // allow cookies/session
   }),
 )
+app.set("trust proxy", 1); // Required for cookies to work on Render!
 app.use(
   bodyParser.json({
     verify: (req, res, buf) => {
@@ -37,16 +38,17 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
-      collectionName: 'sessions',
+      collectionName: "sessions",
     }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax', // Set to true if using HTTPS
+      partitioned: true,
+      secure: true,
+      sameSite: "none", // Set to true if using HTTPS
     },
   }),
-)
+);
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI)
